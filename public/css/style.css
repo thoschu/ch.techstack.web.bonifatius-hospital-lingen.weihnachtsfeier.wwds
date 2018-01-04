@@ -1,0 +1,188 @@
+* { hyphens: auto; }
+
+body {
+    background-color: black;
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem;
+}
+
+.big-letter {
+    font-size: 30px;
+}
+
+.stage {
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows:33.3% 33.3% 33.3%;
+    grid-template-columns:25% 25% 25% 25%;
+    grid-auto-flow: row;
+    border: 7px #FFFF00 solid;
+    border-radius: 25px;
+    width: 75vw;
+    height:100vh;
+    background-color: #808080;
+}
+
+.stage > div {
+    border: 5px #000000 solid;
+    border-radius: 25px;
+    margin: 2px;
+    background-color: #0000FF;
+    position: relative;
+}
+
+.stage > div > p, aside > p {
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.stage > div > p {
+    cursor: pointer;
+}
+
+td {
+    padding-right: 10px;
+}
+
+#player_clever,
+#player_tierisch,
+#player_koerper,
+#player_damals,
+#player_sonne,
+#player_fragezeichen,
+#player_genial,
+#player_wasser,
+#player_essen,
+#player_staatsmaenner,
+#player_ticken,
+#player_globus {
+    display: none;
+}
+
+@-webkit-keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    -webkit-animation: fadeIn .5s ease-in 1 forwards;
+    animation: fadeIn .5s ease-in 1 forwards;
+    opacity: 0;
+}
+
+.is-paused {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.nope {
+    background-color: #FFF !important;
+    background-image: url('../img/nope.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.teamA {
+    background-color: #FF0000 !important;
+    background-image: url('../img/euro.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-size: 80%;
+}
+
+.teamB {
+    background-color: #00FF00 !important;
+    background-image: url('../img/euro.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-size: 80%;
+}
+
+.start-container {
+    display: grid;
+    grid-template-rows:33% 1fr 33%;
+    grid-template-columns:33.3% 33.3% 33.3%;
+    width: 100%;
+}
+
+#overlay2 {
+    background-color: transparent !important;
+    background-image: url('../img/background-image-start.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: default;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+@keyframes fontcolorA {
+    from {color: transparent;}
+    to {color: #FF0000;}
+}
+
+@keyframes fontcolorB {
+    from {color: transparent;}
+    to {color: #00FF00;}
+}
+
+.fontcolorA {
+    color: transparent;
+    animation-name: fontcolorA ;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+.fontcolorB {
+    color: transparent;
+    animation-name: fontcolorB ;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+.notable {
+    display: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

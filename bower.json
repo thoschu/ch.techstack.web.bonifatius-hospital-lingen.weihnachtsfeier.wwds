@@ -1,0 +1,23 @@
+{
+  "name": "wwds",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/rohypnol83/wwds",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "authors": [
+    "Tom <thoschulte@gmail.com>"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

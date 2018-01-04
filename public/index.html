@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Willkommen zu  wer weiss denn sowas!</title>
+        <link rel="icon" href="//icons.iconarchive.com/icons/icons8/christmas-flat-color/32/snowflake-icon.png" type="image/x-icon">
+        <link rel='dns-prefetch' href='//icons.iconarchive.com'>
+        <link rel='dns-prefetch' href='//fonts.googleapis.com'>
+        <link rel='dns-prefetch' href='//maxcdn.bootstrapcdn.com'>
+        <link rel='dns-prefetch' href='//cdnjs.cloudflare.com'>
+        <link rel='dns-prefetch' href='//oss.maxcdn.com'>
+        <link rel='dns-prefetch' href='//code.jquery.com'>
+        <link rel='dns-prefetch' href='//use.fontawesome.com'>
+        <link rel='dns-prefetch' href='//ajax.googleapis.com'>
+        <link rel='dns-prefetch' href='//www.youtube.com'>
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal-default-theme.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <!--[if lt IE 9]>
+            <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script src="//code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+        <script src="//use.fontawesome.com/37435da0ab.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
+        <!--
+        <script>
+            function AsideCtrl($scope) {
+                $scope.info = "Loading...";
+            };
+
+            var p = AsideCtrl.prototype;
+
+            p.onClick = function () {
+                alert("Wait");
+            };
+        </script>
+        -->
+    </head>
+    <body>
+        <!--
+        <aside id="overlay" ng-controller="AsideCtrl">
+            <p id="overlaytext">
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                <span class="sr-only">{{info}}</span>
+            </p>
+        </aside>
+        -->
+        <aside id="overlay2" class="overlay" ng-include="'./templates/aside.two.tmpl.html'"></aside>
+        <aside id="overlay1" class="overlay" ng-include="'./templates/aside.one.tmpl.html'"></aside>
+        <main id="main">
+            <div class="stage">
+                <div id="m1">
+                    <p data-remodal-target="modal1" class="text-center">Clever!</p>
+                    <div id="modal1" class="remodal" data-remodal-id="modal1">
+                        <div id="modal1_header" class="alert alert-info" role="alert">
+                            <p>Welcher Trick hilft laut einer Studie bei einer inter&shy;nationalen Flugbuchung, um den günstigsten Preis zu bekommen?</p>
+                        </div>
+                        <div id="modal1_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('clever_one', 'm1', true)" id="clever_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="clever1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>genau 171 Tage vor dem Abflug buchen</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('clever_two', 'm1', false)" id="clever_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="clever2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>den Flug auf einen Sonntag um 6 setzen</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('clever_three', 'm1', false)" id="clever_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="clever3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>zwischen der 47. und der 48. Stunde vor dem<br>Abflug buchen</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_clever" class='js-fade fade-in is-paused'>PLAYER_clever</div>
+                    </div>
+                </div>
+                <div id="m2">
+                    <p data-remodal-target="modal2" class="text-center">Tierisch tierisch</p>
+                    <div id="modal2" class="remodal" data-remodal-id="modal2">
+                        <div id="modal2_header" class="alert alert-info" role="alert">
+                            <p>Wer von einem Krokodil verfolgt wird, sollte am besten ...?</p>
+                        </div>
+                        <div id="modal2_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('tierisch_one', 'm2', true)" id="tierisch_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="tierisch1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>flinke Haken schlagen wie ein Hase</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('tierisch_two', 'm2', false)" id="tierisch_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="tierisch2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>umfallen wie ein Opossum</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('tierisch_three', 'm2', false)" id="tierisch_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="tierisch3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Laute ausstoßen wie ein Elefant</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_tierisch" class='js-fade fade-in is-paused'>PLAYER_tiersich</div>
+                    </div>
+                </div>
+                <div id="m3">
+                    <p data-remodal-target="modal3" class="text-center">Unser Körper</p>
+                    <div id="modal3" class="remodal" data-remodal-id="modal3">
+                        <div id="modal3_header" class="alert alert-info" role="alert">
+                            <p>Der linke Lungenflügel des Menschen ist ...?</p>
+                        </div>
+                        <div id="modal3_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('koerper_one', 'm3', true)" id="koerper_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="koerper1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>kleiner als der rechte</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('koerper_two', 'm3', false)" id="koerper_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="koerper2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>leistungsstärker als der rechte</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('koerper_three', 'm3', false)" id="koerper_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="koerper3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>bei Linkshändern größer als bei Rechtshändern</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_koerper" class='js-fade fade-in is-paused'>PLAYER_koerper</div>
+                    </div>
+                </div>
+                <div id="m4">
+                    <p data-remodal-target="modal4" class="text-center">Damals</p>
+                    <div id="modal4" class="remodal" data-remodal-id="modal4">
+                        <div id="modal4_header" class="alert alert-info" role="alert">
+                            <p>Wo kam früher das Wellenberuhigungsöl zum Einsatz?</p>
+                        </div>
+                        <div id="modal4_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('damals_one', 'm4', false)" id="damals_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="damals1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Haargewerbe</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('damals_two', 'm4', true)" id="damals_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="damals2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Schifffahrt</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('damals_three', 'm4', false)"id="damals_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="damals3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Tontechnik</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_damals" class='js-fade fade-in is-paused'>PLAYER_damals</div>
+                    </div>
+                </div>
+                <div id="m5">
+                    <p data-remodal-target="modal5" class="text-center">Sonne, Mond und Sterne</p>
+                    <div id="modal5" class="remodal" data-remodal-id="modal5">
+                        <div id="modal5_header" class="alert alert-info" role="alert">
+                            <p>Wann wird ein Vollmond "Blue Moon" genannt?</p>
+                        </div>
+                        <div id="modal5_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('sonne_one', 'm5', false)" id="sonne_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="sonne1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Wenn er seinen erdfernsten Punkt erreicht hat.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('sonne_two', 'm5', false)" id="sonne_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="sonne2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Wenn er als Neumond bläulich schimmert.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('sonne_three', 'm5', true)" id="sonne_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="sonne3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Wenn er ein zweites Mal innerhalb eines Monats<br>vorkommt.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_sonne" class='js-fade fade-in is-paused'>PLAYER_sonne</div>
+                    </div>
+                </div>
+                <div id="m6">
+                    <p data-remodal-target="modal6" class="text-center"><i class="fa fa-question fa-2x" aria-hidden="true"></i></p>
+                    <div id="modal6" class="remodal" data-remodal-id="modal6">
+                        <div id="modal6_header" class="alert alert-info" role="alert">
+                            <p>Paradoxerweise können auch...?</p>
+                        </div>
+                        <div id="modal6_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('fragezeichen_one', 'm6', false)" id="fragezeichen_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="fragezeichen1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Traubenkerne Olivenöl enthalten</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('fragezeichen_two', 'm6', true)" id="fragezeichen_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="fragezeichen2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Placebos Nebenwirkungen hervorrufen</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('fragezeichen_three', 'm6', false)" id="fragezeichen_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="fragezeichen3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>eigene Hautzellen Allergien auslösen</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_fragezeichen" class='js-fade fade-in is-paused'>PLAYER_fragezeichen</div>
+                    </div>
+                </div>
+                <div id="m7">
+                    <p data-remodal-target="modal7" class="text-center">Total genial</p>
+                    <div id="modal7" class="remodal" data-remodal-id="modal7">
+                        <div id="modal7_header" class="alert alert-info" role="alert">
+                            <p>Was kann in die Besteckschublade gelegt werden, um die Verfärbung von Silber zu verringern?</p>
+                        </div>
+                        <div id="modal7_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('genial_one', 'm7', true)" id="genial_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="genial1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Kreide</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('genial_two', 'm7', false)" id="genial_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="genial2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Gold</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('genial_three', 'm7', false)" id="genial_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="genial3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Kartoffel</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_genial" class='js-fade fade-in is-paused'>PLAYER_genial</div>
+                    </div>
+                </div>
+                <div id="m8">
+                    <p data-remodal-target="modal8" class="text-center">Unter Wasser</p>
+                    <div id="modal8" class="remodal" data-remodal-id="modal8">
+                        <div id="modal8_header" class="alert alert-info" role="alert">
+                            <p>Welchen Trick nutzen Forellenbarsche laut neuesten Erkenntnissen bei der Jagd?</p>
+                        </div>
+                        <div id="modal8_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('wasser_one', 'm8', true)" id="wasser_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="wasser1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Sie fordern mit dem Kopf wackelnd Hilfe von<br>Muränen an.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('wasser_two', 'm8', false)" id="wasser_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="wasser2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Sie basteln sich einen Tarnmantel aus Plankton.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('wasser_three', 'm8', false)" id="wasser_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="wasser3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Sie stellen sich tot.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_wasser" class='js-fade fade-in is-paused'>PLAYER_wasser</div>
+                    </div>
+                </div>
+                <div id="m9">
+                    <p data-remodal-target="modal9" class="text-center">Essen & Trinken</p>
+                    <div id="modal9" class="remodal" data-remodal-id="modal9">
+                        <div id="modal9_header"class="alert alert-info" role="alert">
+                            <p>Warum sollte direkt nach dem Essen besser kein Kaffee getrunken werden?</p>
+                        </div>
+                        <div id="modal9_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('essen_one', 'm9', true)" id="essen_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="essen1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>vermindert die Eisenaufnahme</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('essen_two', 'm9', false)" id="essen_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="essen2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>beschleunigt die Kalorienaufnahme</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('essen_three', 'm9', false)" id="essen_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="essen3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>lässt einen schneller wieder hungrig werden</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_essen" class='js-fade fade-in is-paused'>PLAYER_essen</div>
+                    </div>
+                </div>
+                <div id="m10">
+                    <p data-remodal-target="modal10" class="text-center">Staatsmänner</p>
+                    <div id="modal10" class="remodal" data-remodal-id="modal10">
+                        <div id="modal10_header" class="alert alert-info" role="alert">
+                            <p>Welches erstaunliche Ereignis widerfuhr Winston Churchill?</p>
+                        </div>
+                        <div id="modal10_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('staatsmaenner_one', 'm10', false)" id="staatsmaenner_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="staatsmaenner1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Er heiratete eine Frau, die mit Nachnamen schon<br>Churchill hieß.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('staatsmaenner_two', 'm10', false)" id="staatsmaenner_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="staatsmaenner2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Er hatte ein Blind Date mit Elisabeth II.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('staatsmaenner_three', 'm10', true)" id="staatsmaenner_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="staatsmaenner3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Er kam in einer Damenumkleide zur Welt.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_staatsmaenner" class='js-fade fade-in is-paused'>PLAYER_staatsmaenner</div>
+                    </div>
+                </div>
+                <div id="m11">
+                    <p data-remodal-target="modal11" class="text-center">Wie ticken wir?</p>
+                    <div id="modal11" class="remodal" data-remodal-id="modal11">
+                        <div id="modal11_header" class="alert alert-info" role="alert">
+                            <p>Warum werden Uhren in der Werbung und auf Verpackungen in der Regel mit der Uhrzeit "zehn nach Zehn" dargestellt?</p>
+                        </div>
+                        <div id="modal11_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('ticken_one', 'm11', false)" id="ticken_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="ticken1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Zehn nach Zehn ist die traditionelle Frühstückszeit in<br>der Schweiz.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('ticken_two', 'm11', true)" id="ticken_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="ticken2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Die Zeigerposition wirkt wie ein lächelnder Mund.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('ticken_three', 'm11', false)" id="ticken_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="ticken3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Die Zeiger symbolisieren Sonnenstrahlen.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_ticken" class='js-fade fade-in is-paused'>PLAYER_ticken</div>
+                    </div>
+                </div>
+                <div id="m12">
+                    <p data-remodal-target="modal12" class="text-center">Auf dem Globus</p>
+                    <div id="modal12" class="remodal" data-remodal-id="modal12">
+                        <div id="modal12_header" class="alert alert-info" role="alert">
+                            <p>Was haben Neuseeland und die Niederlande gemeinsam?</p>
+                        </div>
+                        <div id="modal12_jumbotron" class="jumbotron" ng-controller="ModalController">
+                            <button ng-click="button1('globus_one', 'm12', false)" id="globus_one" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="globus1" class="big-letter badge badge-warning">A</span></td>
+                                        <td>Es gibt in beiden Ländern mehr Fahrräder als<br>Menschen.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button2('globus_two', 'm12', true)" id="globus_two" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="globus2" class="big-letter badge badge-warning">B</span></td>
+                                        <td>Es wurde nach einer niederländischen Provinz<br>benannt.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                            <button ng-click="button3('globus_three', 'm12', false)" id="globus_three" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                                <table>
+                                    <tr>
+                                        <td><span id="globus3" class="big-letter badge badge-warning">C</span></td>
+                                        <td>Sie produzieren in etwa die gleiche Menge Kiwis.</td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </div>
+                        <div id="player_globus" class='js-fade fade-in is-paused'>PLAYER_globus</div>
+                    </div>
+                </div>
+                <div id="modal13" class="remodal" data-remodal-id="modal13" ng-controller="PointsController">
+                    <div class="alert alert-info" role="alert">
+                        <p ng-bind="header"></p>
+                    </div>
+                    <div class="jumbotron">
+                        <div class="container">
+                            <button id="showPointsBtn" type="button" ng-click="showPoints()" class="btn btn-outline-secondary btn-lg btn-block text-center" data-toggle="collapse" data-target="#results">Weiter</button>
+                            <div id="results" class="collapse">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                <i style="color: #FF0000;" class="fa fa-users fa-3x" aria-hidden="true"></i>
+                                            </th>
+                                            <th class="text-center">
+                                                <i style="color: #00FF00;" class="fa fa-users fa-3x" aria-hidden="true"></i>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{pointsTeamA}} <i class="fa fa-eur" aria-hidden="true"></i></td>
+                                            <td>{{pointsTeamB}} <i class="fa fa-eur" aria-hidden="true"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="number" class="form-control" id="tA" min="0" max="{{pointsTeamA}}" ng-model="inputA">
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control" id="tB" min="0" max="{{pointsTeamB}}" ng-model="inputB">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button ng-click="next()" type="button" class="btn btn-outline-secondary btn-lg btn-block text-center">Weiter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div id="modal14" class="remodal" data-remodal-id="modal14" ng-controller="MasterController">
+                    <div id="modal14_header" class="alert alert-info" role="alert">
+                        <p>Welcher dieser Flüsse durchfließt die meisten Länder?</p>
+                    </div>
+                    <div id="modal14_jumbotron" class="jumbotron" ng-controller="ModalController">
+                        <button ng-click="buttonA()"  type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                            <table>
+                                <tr>
+                                    <td><span id="master1" class="big-letter badge badge-warning">A</span></td>
+                                    <td>Wolga</td>
+                                    <td id="masterA" width="100%"></td>
+                                </tr>
+                            </table>
+                        </button>
+                        <button ng-click="buttonB()" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                            <table>
+                                <tr>
+                                    <td><span id="master2" class="big-letter badge badge-warning">B</span></td>
+                                    <td>Ganges</td>
+                                    <td id="masterB" width="100%"></td>
+                                </tr>
+                            </table>
+                        </button>
+                        <button ng-click="buttonC()" type="button" class="btn btn-outline-primary btn-lg btn-block text-left">
+                            <table>
+                                <tr>
+                                    <td><span id="master3" class="big-letter badge badge-warning">C</span></td>
+                                    <td>Mekong</td>
+                                    <td id="masterC" width="100%"></td>
+                                </tr>
+                            </table>
+                        </button>
+                        <button ng-click="result()" type="button" class="btn btn-outline-secondary btn-lg btn-block">Ergebnis</button>
+                    </div>
+                     <p id="endResultHeader" class="notable">Endergebnis</p>
+                     <table id="endResultTable" class="table notable">
+                         <thead class="thead-light">
+                             <tr>
+                                 <th></th>
+                                 <th class="text-center">
+                                     <i style="color: #FF0000;" class="fa fa-users fa-2x" aria-hidden="true"></i>
+                                 </th>
+                                 <th class="text-center">
+                                     <i style="color: #00FF00;" class="fa fa-users fa-2x" aria-hidden="true"></i>
+                                 </th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr style="color: darkgrey;">
+                                 <td><i class="fa fa-credit-card" aria-hidden="true"></i></td>
+                                 <td ng-bind="creditTeamAFn()"></td>
+                                 <td ng-bind="creditTeamBFn()"></td>
+                             </tr>
+                             <tr style="color: darkgrey;">
+                                 <td><i class="fa fa-money" aria-hidden="true"></i></td>
+                                 <td ng-bind="betTeamAFn()"></td>
+                                 <td ng-bind="betTeamBFn()"></td>
+                             </tr>
+                             <tr>
+                                 <td>
+                                     <i class="fa fa-trophy fa-lg" aria-hidden="true"></i>
+                                 </td>
+                                 <td ng-bind="winTeamAFn()"></td>
+                                 <td ng-bind="winTeamBFn()"></td>
+                             </tr>
+                         </tbody>
+                     </table>
+                </div>
+            </div>
+        </main>
+        <script src="./js/model/values.js"></script>
+        <script src="./js/controller/start.js"></script>
+        <script src="./js/controller/modal.js"></script>
+        <script src="./js/controller/points.js"></script>
+        <script src="./js/controller/master.js"></script>
+        <script src="./js/app.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
